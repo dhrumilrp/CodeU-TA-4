@@ -1,6 +1,4 @@
-import java.util.ArrayList;
 import java.util.TreeSet;
-
 
 public class UglyNumbers {
 	static TreeSet<Integer> vals = new TreeSet<Integer>();
@@ -8,6 +6,7 @@ public class UglyNumbers {
 	
 	int kthUlgy(int k) throws IndexOutOfBoundsException{
 		addVals(k);
+		
 		Object[] uglies = vals.toArray();
 		
 		return (int) uglies[k-1];
@@ -19,18 +18,21 @@ public class UglyNumbers {
 			vals.add(x * 2);
 			vals.add(x * 3);
 			vals.add(x * 5);
-			k-=3;
+			k--;
 			x++;
+			while(!vals.contains(x)) x++; //there are ways to skip numbers
 		}
 	}
 	
 	public static void main(String[] args){
 		vals.add(1);
 		UglyNumbers chart = new UglyNumbers();
-		System.out.println(chart.kthUlgy(5));
-		System.out.println(chart.kthUlgy(10));
-		//correctly prints out the 5th and 10th ulgy
-		//number
+		//System.out.println(chart.kthUlgy(3));
+		//System.out.println(chart.kthUlgy(4));
 		
+		for(int i = 1; i< 25; i++){
+			System.out.println(chart.kthUlgy(i));
+		}
+		//correctly prints out the first 24 ugly numbers
 	}	
 }

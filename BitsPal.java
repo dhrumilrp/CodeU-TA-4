@@ -18,8 +18,8 @@ public class BitsPal {
 		return false;
 	}
 	
-	void addPal(int k){
-		int i = 1;
+	void addPal(int k){ 
+		int i = vals.size()+1;
 		while(vals.size() < k){
 			if(isPal(i)){
 				vals.add(i);
@@ -38,9 +38,8 @@ public class BitsPal {
 	}
 
 	public static void main(String[] args){
-		int num = 12;
 		BitsPal pal = new BitsPal();
-		System.out.println(pal.kthPal(10)); //31
-		System.out.println(pal.kthPal(50)); //633
+		System.out.println(pal.kthPal(49));
+		System.out.println(pal.kthPal(50));
 	}
 }
